@@ -1,0 +1,32 @@
+using WebApplication3.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace WebApplication3.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            Books books = new Books();
+            ViewBag.booklist = books.booklist;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Buy(int id)
+        {
+            ViewBag.BookId = 4;
+
+            return View();
+        }
+
+        public string Buy(FormCollection form, int id , string name, string author, int price)
+          {
+            return "Thanks" + "For your purchase";
+        }
+    }
+}
