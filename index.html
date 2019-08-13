@@ -1,0 +1,37 @@
+@model WebApplication3.Models.Books
+    @{ Layout = null;
+     }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=devece-width"/>
+    <title> Book store</title>>
+    </head>
+<body>
+    <div>
+        <h3> Book Salary</h3>
+        <table>
+            <tr>
+                <td><p>Name of the Book</p></td>
+                <td><p>Author</p></td>
+                <td><p>Price</p></td>
+                <td></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.booklist)
+            {
+            <tr>
+                <td><p name="name">@b.Name</p></td>
+                <td><p name="author">@b.Author</p></td>
+                <td><p name="price">@b.Price</p></td>
+                <td><p>
+                    @Html.ActionLink("buy", "Buy",new { @b.Id, @b.Name, @b.Author, @b.Price })
+                    </p></td>
+            </tr>
+
+            }
+        </table>
+    </div>
+</body>
+
+</html>
